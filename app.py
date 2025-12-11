@@ -32,8 +32,8 @@ dash_app.layout = html.Div(
       children=html.Nav(
         className="nav",
         children=[
-          html.A("BEAR", className="logo", href=url_for("home")),
-          html.Div(className="nav-actions", children=[html.A("Home", className="nav-link", href=url_for("home"))]),
+          html.A("BEAR", className="logo", href="/"),
+          html.Div(className="nav-actions", children=[html.A("Home", className="nav-link", href="/")]),
         ],
       ),
     ),
@@ -150,7 +150,7 @@ dash_app.layout = html.Div(
       className="shell footer",
       children=[
         html.Span("BEAR", className="logo"),
-        html.Div(className="footer-links", children=[html.A("Home", href=url_for("home")), html.A("How it works", href=url_for("home") + "#how")]),
+        html.Div(className="footer-links", children=[html.A("Home", href="/"), html.A("How it works", href="/#how")]),
         html.P("Quiet confidence, delivered.", className="muted"),
       ],
     ),
