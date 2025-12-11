@@ -1,12 +1,12 @@
 :root {
-  --bg: #f7f2ec;
-  --panel: #ffffff;
-  --card: #ffffff;
-  --text: #2b1b12;
-  --muted: #7a5a46;
-  --accent: #8b5a36;
-  --line: #e6d7c8;
-  --shadow: 0 16px 40px rgba(43, 27, 18, 0.08);
+  --bg: #0c0806;
+  --panel: #120d0a;
+  --card: #17100c;
+  --text: #f3e9e0;
+  --muted: #c2a892;
+  --accent: #d9b28b;
+  --line: #2a1d16;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
   --radius: 14px;
   --space: 20px;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -20,8 +20,8 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at 20% 20%, #f1e5d8, #f7f2ec 45%),
-              radial-gradient(circle at 80% 0%, #f0e0cf, #f7f2ec 55%),
+  background: radial-gradient(circle at 20% 20%, #160f0b, #0c0806 45%),
+              radial-gradient(circle at 80% 0%, #1c130e, #0c0806 55%),
               var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -77,10 +77,19 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 28px;
-  align-items: center;
-  padding: 30px 0 10px;
+  align-items: end;
+  padding: 30px 0 20px;
+}
+
+.hero-visual {
+  min-height: 320px;
+  border-radius: 18px;
+  background: linear-gradient(140deg, rgba(12, 8, 6, 0.35), rgba(12, 8, 6, 0.7)),
+              url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80') center/cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
 .hero-copy h1 {
@@ -98,7 +107,7 @@ a {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .hero-tags {
@@ -113,9 +122,9 @@ a {
 .hero-tags li {
   padding: 8px 12px;
   border-radius: 999px;
-  background: #f0e5da;
-  border: 1px solid #eadbcb;
-  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
@@ -153,7 +162,7 @@ a {
 }
 
 .card {
-  background: linear-gradient(160deg, var(--card), #f2e8dd 70%);
+  background: linear-gradient(160deg, var(--card), #0f0a08 70%);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 18px;
@@ -162,7 +171,7 @@ a {
 
 .card.minimal {
   box-shadow: none;
-  background: #f9f4ed;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .card-label {
@@ -219,13 +228,13 @@ a {
 }
 
 .button.primary {
-  background: linear-gradient(135deg, #9f6f45, #7f5231);
+  background: linear-gradient(135deg, #7d4f2f, #5a3722);
   border-color: #8b5a36;
   color: #fffdf9;
 }
 
 .button.ghost {
-  background: #f5ede3;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .button.block {
@@ -241,7 +250,7 @@ a {
 .pill {
   padding: 10px 14px;
   border-radius: 999px;
-  background: #f3e7db;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
   color: var(--text);
   font-size: 0.95rem;
@@ -253,13 +262,13 @@ a {
 
 .pill-select {
   cursor: pointer;
-  background: #f6ede3;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .pill-select.active {
   border-color: var(--accent);
   color: var(--accent);
-  background: #f1e2d5;
+  background: rgba(210, 176, 138, 0.08);
 }
 
 .hero-metrics {
@@ -279,8 +288,8 @@ a {
 }
 
 .cta-card {
-  background: linear-gradient(120deg, #f8efe5, #f2e6d8 70%);
-  border: 1px solid #e7d7c7;
+  background: linear-gradient(120deg, #16100d, #120c0a 70%);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 22px;
   display: flex;
@@ -330,7 +339,7 @@ a {
 
 select,
 input[type="email"] {
-  background: #f8f2eb;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 12px 12px;
@@ -348,7 +357,7 @@ input[type="email"]:focus {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 12px 12px 8px;
-  background: #f9f3eb;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .fieldset legend {
@@ -419,7 +428,7 @@ input[type="email"]:focus {
 /* Dash form alignments */
 .dropdown .Select-control,
 .dropdown .Select-menu-outer {
-  background: #f8f2eb;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
   border-radius: 12px;
   color: var(--text);
@@ -436,7 +445,7 @@ input[type="email"]:focus {
 
 .email-input,
 .dropdown .Select-input > input {
-  background: #f8f2eb;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 12px 12px;
@@ -461,6 +470,68 @@ input[type="email"]:focus {
 .pill-radio-label:has(input:checked) {
   border-color: var(--accent);
   color: var(--accent);
-  background: #f1e2d5;
+  background: rgba(210, 176, 138, 0.1);
+}
+
+/* Plan grid */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.plan-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: linear-gradient(150deg, #1a120e, #100b08 70%);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.plan-card .plan-title {
+  font-weight: 700;
+  margin: 0;
+}
+
+.plan-card .muted {
+  color: var(--muted);
+}
+
+.plan-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #0f0a07;
+}
+
+.plan-card.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(217, 178, 139, 0.3), var(--shadow);
+}
+
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.size-chip {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.size-chip.selected {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(210, 176, 138, 0.08);
 }
 
