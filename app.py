@@ -28,13 +28,10 @@ dash_app: Dash = dash.Dash(
 )
 
 plans = [
-  {"label": "Start (3)", "value": "3", "copy": "Light, discreet top-up.", "image": "https://images.unsplash.com/photo-1506617420156-8e4536971650?auto=format&fit=crop&w=600&q=80"},
-  {"label": "10 Pack", "value": "10", "copy": "Stay stocked without excess.", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"},
-  {"label": "20 Pack", "value": "20", "copy": "Your steady monthly cadence.", "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80"},
-  {"label": "30 Pack", "value": "30", "copy": "For frequent use, set-and-forget.", "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=600&q=80"},
+  {"label": "Starter (3)", "value": "starter", "copy": "Three condoms to dial your size—mix or match.", "count": "3"},
+  {"label": "Pack of 10", "value": "10", "copy": "Steady stock, discreetly delivered.", "count": "10"},
+  {"label": "Pack of 20", "value": "20", "copy": "Keep pace with your rhythm.", "count": "20"},
 ]
-
-size_options = [f"{letter}{num}" for letter in ["A", "B", "C"] for num in range(1, 6)]
 
 dash_app.layout = html.Div(
   className="page",
@@ -44,7 +41,7 @@ dash_app.layout = html.Div(
       children=html.Nav(
         className="nav",
         children=[
-          html.A("BEAR", className="logo", href="/"),
+          html.A([html.Span(className="logo-mark"), "BEAR"], className="logo", href="/"),
           html.Div(className="nav-actions", children=[
             html.A("Home", className="nav-link", href="/"),
             html.A("Product", className="nav-link", href="/product"),
@@ -61,8 +58,8 @@ dash_app.layout = html.Div(
               className="section-head",
               children=[
                 html.P("Subscriptions", className="eyebrow"),
-                html.H1("Choose your batch, shade, and rhythm."),
-                html.P("Deep brown aesthetic, quality latex, discreet delivery.", className="muted"),
+                html.H1("Choose your batch, type, and cadence."),
+                html.P("Minimal, darker browns with discreet delivery.", className="muted"),
               ],
             ),
             html.Div(
@@ -82,7 +79,7 @@ dash_app.layout = html.Div(
                               className="plan-card",
                               id={"type": "plan-card", "index": plan["value"]},
                               children=[
-                                html.Img(src=plan["image"], alt=plan["label"]),
+                                html.Div("BEAR", className="pack-shot"),
                                 html.P(plan["label"], className="plan-title"),
                                 html.P(plan["copy"], className="muted"),
                               ],
@@ -102,14 +99,22 @@ dash_app.layout = html.Div(
                           inputClassName="choice-input",
                           labelClassName="choice",
                         ),
-                        html.Label("Shade + size", className="label"),
-                        html.Div(
-                          className="size-grid",
-                          children=[
-                            html.Div(option, className="size-chip", id={"type": "size-chip", "index": option}) for option in size_options
-                          ],
+                        html.Label("Type", className="label"),
+                        dcc.RadioItems(
+                          id="type",
+                          options=[{"label": t, "value": t} for t in ["A", "B", "C"]],
+                          inputClassName="choice-input",
+                          labelClassName="pill pill-select",
+                          inputStyle={"display": "none"},
                         ),
-                        dcc.Store(id="size"),
+                        html.Label("Size", className="label"),
+                        dcc.RadioItems(
+                          id="size",
+                          options=[{"label": str(num), "value": str(num)} for num in range(1, 6)],
+                          inputClassName="choice-input",
+                          labelClassName="pill pill-select",
+                          inputStyle={"display": "none"},
+                        ),
                         html.Label("Email", className="label"),
                         dcc.Input(id="email", type="email", placeholder="you@bear.com", className="email-input"),
                         html.Button("Reserve my subscription", id="confirm", className="button primary block", n_clicks=0),
@@ -129,6 +134,7 @@ dash_app.layout = html.Div(
                       children=[
                         html.Div([html.P("Batch", className="muted"), html.P("—", id="summary-pack", className="metric")]),
                         html.Div([html.P("Interval", className="muted"), html.P("—", id="summary-interval", className="metric")]),
+                        html.Div([html.P("Type", className="muted"), html.P("—", id="summary-type", className="metric")]),
                         html.Div([html.P("Size", className="muted"), html.P("—", id="summary-size", className="metric")]),
                         html.Div([html.P("Email", className="muted"), html.P("—", id="summary-email", className="metric")]),
                       ],
@@ -146,7 +152,7 @@ dash_app.layout = html.Div(
     html.Footer(
       className="shell footer",
       children=[
-        html.Span("BEAR", className="logo"),
+        html.Span([html.Span(className="logo-mark"), "BEAR"], className="logo"),
         html.Div(className="footer-links", children=[html.A("Home", href="/"), html.A("Product", href="/product")]),
         html.P("Quiet confidence, delivered.", className="muted"),
       ],
@@ -158,6 +164,7 @@ dash_app.layout = html.Div(
 @dash_app.callback(
   Output("summary-pack", "children"),
   Output("summary-interval", "children"),
+  Output("summary-type", "children"),
   Output("summary-size", "children"),
   Output("summary-email", "children"),
   Output("summary-title", "children"),
@@ -165,41 +172,62 @@ dash_app.layout = html.Div(
   Output("confirm", "children"),
   Input("confirm", "n_clicks"),
   Input({"type": "plan-card", "index": dash.ALL}, "n_clicks"),
-  Input({"type": "size-chip", "index": dash.ALL}, "n_clicks"),
   State("interval", "value"),
+  State("type", "value"),
+  State("size", "value"),
   State("email", "value"),
   State("plan", "data"),
-  State("size", "data"),
   prevent_initial_call=False,
 )
-def update_summary(n_clicks, plan_clicks, size_clicks, interval, email, plan_store, size_store):
+def update_summary(n_clicks, plan_clicks, interval, type_value, size_value, email, plan_store):
   ctx = dash.callback_context
   plan_value = None
-  size_value = None
 
   if ctx.triggered:
     for trig in ctx.triggered:
       if trig["prop_id"].startswith('{"type":"plan-card"'):
         plan_value = trig["prop_id"].split('"index":"')[1].split('"')[0]
-      if trig["prop_id"].startswith('{"type":"size-chip"'):
-        size_value = trig["prop_id"].split('"index":"')[1].split('"')[0]
 
   plan_selected = plan_value or plan_store
-  size_selected = size_value or size_store
 
   interval_label = interval or "—"
-  pack_label = f"{plan_selected} pack" if plan_selected else "—"
-  size_label = size_selected or "—"
+  pack_label = plan_selected or "—"
+  type_label = type_value or "—"
+  size_label = size_value or "—"
   email_label = email or "—"
 
-  ready = all([plan_selected, interval, size_selected])
+  ready = all([plan_selected, interval, type_value, size_value])
   confirmed = ready and n_clicks and n_clicks > 0
 
   title = "Reserved. You are set." if confirmed else ("Ready to confirm." if ready else "Choose a pack")
-  subtitle = f"{pack_label} • {interval_label} • {size_label}" if ready else "Pick a batch, interval, and size to see your plan."
+  subtitle = f"{pack_label} • {interval_label} • {type_label}{size_label}" if ready else "Pick a batch, interval, and size to see your plan."
   button_text = "Reserved" if confirmed else "Reserve my subscription"
 
-  return pack_label, interval_label, size_label, email_label, title, subtitle, button_text
+  return pack_label, interval_label, type_label, size_label, email_label, title, subtitle, button_text
+
+
+@dash_app.callback(
+  Output("plan", "data"),
+  Output({"type": "plan-card", "index": dash.ALL}, "className"),
+  Input({"type": "plan-card", "index": dash.ALL}, "n_clicks"),
+  State({"type": "plan-card", "index": dash.ALL}, "id"),
+  State("plan", "data"),
+)
+def select_plan(plan_clicks, ids, current_plan):
+  selected = current_plan
+  ctx = dash.callback_context
+  if ctx.triggered:
+    trig = ctx.triggered[0]["prop_id"]
+    if trig and trig.startswith('{"type":"plan-card"'):
+      selected = trig.split('"index":"')[1].split('"')[0]
+
+  classes = []
+  for id_obj in ids:
+    base = "plan-card"
+    if selected and id_obj.get("index") == selected:
+      base += " selected"
+    classes.append(base)
+  return selected, classes
 
 
 if __name__ == "__main__":
