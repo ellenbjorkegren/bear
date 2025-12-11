@@ -6,7 +6,7 @@
   <title>BEAR | Minimal luxe protection</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body class="page">
@@ -20,16 +20,17 @@
   </header>
 
   <main>
-    <section class="hero shell">
-      <div class="hero-visual"></div>
-      <div class="hero-copy">
-        <p class="eyebrow">Luxe. Quiet. Yours.</p>
-        <h1>Tailored protection, delivered.</h1>
-        <p class="lede">Premium condoms, darker browns, subscription-only simplicity.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="{{ url_for('shop_redirect') }}">Subscribe</a>
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Luxe. Quiet. Yours.</p>
+          <h1>Protection that fits your rhythm.</h1>
+          <p class="lede">Premium condoms, tailored sizing, delivered on your schedule.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="{{ url_for('shop_redirect') }}">Subscribe</a>
+          </div>
+          <p class="muted">Sized by you. Sent discreetly.</p>
         </div>
-        <p class="muted">Sized by you. Sent discreetly.</p>
       </div>
     </section>
 
