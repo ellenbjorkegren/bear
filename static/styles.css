@@ -77,23 +77,23 @@ a {
 
 .logo-mark {
   position: relative;
-  width: 30px;
+  width: 34px;
   height: 24px;
-  background: linear-gradient(140deg, #c8a27a, #946940);
-  border-radius: 12px 12px 10px 10px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(150deg, #a66b38, #7a4a2a);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
 .logo-mark::before,
 .logo-mark::after {
   content: "";
   position: absolute;
-  top: -8px;
+  top: -6px;
   width: 12px;
   height: 12px;
-  background: linear-gradient(140deg, #c8a27a, #946940);
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(150deg, #a66b38, #7a4a2a);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
 }
 
 .logo-mark::before {
@@ -123,7 +123,7 @@ a {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(12, 8, 6, 0.45) 0%, rgba(12, 8, 6, 0.82) 100%),
-              url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80') center/cover;
+              url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=80') center/cover;
   filter: saturate(0.8);
 }
 
@@ -529,6 +529,11 @@ input[type="email"]:focus {
   cursor: pointer;
 }
 
+.plan-card:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .plan-card .plan-title {
   font-weight: 700;
   margin: 0;
@@ -571,6 +576,11 @@ input[type="email"]:focus {
   border-color: var(--accent);
   color: var(--accent);
   background: rgba(210, 176, 138, 0.08);
+}
+
+.plan-card {
+  text-decoration: none;
+  color: inherit;
 }
 
 .pack-shot {
