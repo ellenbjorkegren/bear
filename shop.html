@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEAR | Shop subscriptions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page">
+  <header class="shell">
+    <nav class="nav">
+      <a class="logo" href="index.html">BEAR</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="index.html#how">How it works</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section shell">
+      <div class="section-head">
+        <p class="eyebrow">Subscriptions</p>
+        <h1>Choose your batch, set your rhythm.</h1>
+        <p class="muted">Custom sizing, premium quality. Select a pack and delivery interval that keeps you ready—without excess.</p>
+      </div>
+
+      <div class="grid two stack-gap">
+        <div class="card form-card">
+          <form id="plan-form" class="form">
+            <label class="label">
+              Size
+              <select name="size" required>
+                <option value="" disabled selected>Select your fit</option>
+                <option>Tailored S</option>
+                <option>Tailored M</option>
+                <option>Tailored L</option>
+                <option>Tailored XL</option>
+              </select>
+            </label>
+
+            <label class="label">
+              Batch size
+              <div class="pill-row selectable" data-group="pack">
+                <button type="button" class="pill pill-select" data-value="3">3</button>
+                <button type="button" class="pill pill-select" data-value="10">10</button>
+                <button type="button" class="pill pill-select" data-value="20">20</button>
+                <button type="button" class="pill pill-select" data-value="30">30</button>
+              </div>
+              <input type="hidden" name="pack" required>
+            </label>
+
+            <fieldset class="fieldset">
+              <legend>Delivery interval</legend>
+              <label class="choice"><input type="radio" name="interval" value="Every month" required> Every month</label>
+              <label class="choice"><input type="radio" name="interval" value="Every other month"> Every other month</label>
+              <label class="choice"><input type="radio" name="interval" value="Every 3 months"> Every 3 months</label>
+            </fieldset>
+
+            <label class="label">
+              Email
+              <input type="email" name="email" placeholder="you@bear.com" required>
+            </label>
+
+            <button class="button primary block" type="submit">Reserve my subscription</button>
+            <p class="form-note muted">No charge yet—we’ll confirm your fit and schedule.</p>
+          </form>
+        </div>
+
+        <div class="card summary-card">
+          <p class="card-label">Your selection</p>
+          <h3 id="summary-title">Choose a pack</h3>
+          <p class="muted" id="summary-subtitle">Pick your batch size, interval, and fit to see your plan.</p>
+          <div class="summary-grid">
+            <div>
+              <p class="muted">Batch</p>
+              <p class="metric" id="summary-pack">—</p>
+            </div>
+            <div>
+              <p class="muted">Interval</p>
+              <p class="metric" id="summary-interval">—</p>
+            </div>
+            <div>
+              <p class="muted">Size</p>
+              <p class="metric" id="summary-size">—</p>
+            </div>
+            <div>
+              <p class="muted">Email</p>
+              <p class="metric" id="summary-email">—</p>
+            </div>
+          </div>
+          <div class="pill-row muted-row">
+            <span class="pill">Premium latex</span>
+            <span class="pill">Discreet delivery</span>
+            <span class="pill">Flexible pauses</span>
+          </div>
+          <a class="button ghost block" href="index.html">Back to home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <span class="logo">BEAR</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#how">How it works</a>
+    </div>
+    <p class="muted">Quiet confidence, delivered.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
