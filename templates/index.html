@@ -7,14 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body class="page">
   <header class="shell">
     <nav class="nav">
-      <a class="logo" href="index.html">BEAR</a>
+      <a class="logo" href="{{ url_for('home') }}">BEAR</a>
       <div class="nav-actions">
-        <a class="nav-link" href="shop.html">Shop</a>
+        <a class="nav-link" href="{{ url_for('shop_redirect') }}">Shop</a>
       </div>
     </nav>
   </header>
@@ -26,7 +26,7 @@
         <h1>Protection tailored to your size and rhythm.</h1>
         <p class="lede">BEAR is the luxurious condom subscription built around fit, feel, and consistency—delivered in quiet, beautiful batches.</p>
         <div class="hero-actions">
-          <a class="button primary" href="shop.html">Start a subscription</a>
+          <a class="button primary" href="{{ url_for('shop_redirect') }}">Start a subscription</a>
           <a class="button ghost" href="#how">How it works</a>
         </div>
         <ul class="hero-tags">
@@ -56,7 +56,7 @@
               <p class="metric">Every 1–3 months</p>
             </div>
           </div>
-          <a class="button block" href="shop.html">Choose your plan</a>
+          <a class="button block" href="{{ url_for('shop_redirect') }}">Choose your plan</a>
         </div>
       </div>
     </section>
@@ -119,7 +119,7 @@
           <h2>Start your BEAR subscription today.</h2>
           <p class="muted">Pick a batch, choose your cadence, and stay stocked with refined essentials.</p>
         </div>
-        <a class="button primary" href="shop.html">View plans</a>
+        <a class="button primary" href="{{ url_for('shop_redirect') }}">View plans</a>
       </div>
     </section>
   </main>
@@ -127,13 +127,13 @@
   <footer class="shell footer">
     <span class="logo">BEAR</span>
     <div class="footer-links">
-      <a href="shop.html">Shop</a>
+      <a href="{{ url_for('shop_redirect') }}">Shop</a>
       <a href="#how">How it works</a>
     </div>
     <p class="muted">Quiet confidence, delivered.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
 

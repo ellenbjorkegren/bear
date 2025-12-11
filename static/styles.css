@@ -415,3 +415,51 @@ input[type="email"]:focus {
   }
 }
 
+/* Dash form alignments */
+.dropdown .Select-control,
+.dropdown .Select-menu-outer {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.dropdown .Select-placeholder,
+.dropdown .Select-value-label {
+  color: var(--text);
+}
+
+.dropdown .Select-arrow-zone .Select-arrow {
+  border-top-color: var(--text);
+}
+
+.email-input,
+.dropdown .Select-input > input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 12px;
+  color: var(--text);
+}
+
+.pill-radio {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill-radio-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pill-radio-input {
+  display: none;
+}
+
+.pill-radio-label:has(input:checked) {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(210, 176, 138, 0.08);
+}
+
