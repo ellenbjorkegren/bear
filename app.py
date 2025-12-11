@@ -137,7 +137,7 @@ dash_app.layout = html.Div(
                       ],
                     ),
                     html.Div(className="pill-row muted-row", children=[html.Span("Premium latex", className="pill"), html.Span("Discreet delivery", className="pill"), html.Span("Flexible pauses", className="pill")]),
-                    html.A("Back to home", className="button ghost block", href=url_for("home")),
+                    html.A("Back to home", className="button ghost block", href="/"),
                   ],
                 ),
               ],
