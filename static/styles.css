@@ -1,15 +1,15 @@
 :root {
-  --bg: #0d0c0b;
-  --panel: #141110;
-  --card: #191412;
+  --bg: #1a120d;
+  --panel: #201611;
+  --card: #241812;
   --text: #f2ebe4;
   --muted: #b7a08c;
   --accent: #c08a55;
-  --line: #2b231d;
+  --line: #2f221a;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
   --radius: 10px;
   --space: 20px;
-  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: var(--text);
   background-color: var(--bg);
 }
@@ -52,11 +52,12 @@ a {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   font-size: 1.6rem;
   text-transform: uppercase;
+  color: #d9d9d9;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
 }
 
 .nav-actions {
@@ -75,34 +76,6 @@ a {
   font-weight: 600;
 }
 
-.logo-mark {
-  position: relative;
-  width: 34px;
-  height: 24px;
-  background: linear-gradient(150deg, #a66b38, #7a4a2a);
-  border-radius: 6px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
-}
-
-.logo-mark::before,
-.logo-mark::after {
-  content: "";
-  position: absolute;
-  top: -6px;
-  width: 12px;
-  height: 12px;
-  background: linear-gradient(150deg, #a66b38, #7a4a2a);
-  border-radius: 4px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
-}
-
-.logo-mark::before {
-  left: 2px;
-}
-
-.logo-mark::after {
-  right: 2px;
-}
 
 .nav-link:hover {
   border-color: var(--accent);
@@ -183,7 +156,7 @@ a {
 
 .section h2 {
   margin: 6px 0 12px;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
 }
 
 .grid {
