@@ -1,15 +1,22 @@
 :root {
-  --bg: #1a120d;
-  --panel: #201611;
-  --card: #241812;
-  --text: #f2ebe4;
-  --muted: #b7a08c;
-  --accent: #c08a55;
-  --line: #2f221a;
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --bg-1: #ea4d7f;
+  --bg-2: #b6a28e;
+  --bg-3: #735a4c;
+  --bg-4: #cba560;
+  --text-1: #302621;
+  --text-2: #801818;
+  --text-3: #7a715c;
+  --text-4: #3d3d2e;
+  --text-5: #4b5320;
+  --bg: #b6a28e;
+  --text: #302621;
+  --muted: #7a715c;
+  --accent: #801818;
+  --line: #735a4c;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
   --radius: 10px;
   --space: 20px;
-  font-family: 'GT Haptik', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Mukta Mahee', system-ui, -apple-system, sans-serif;
   color: var(--text);
   background-color: var(--bg);
 }
@@ -20,8 +27,8 @@
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg-2);
+  color: var(--text-1);
   min-height: 100vh;
 }
 
@@ -47,18 +54,19 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 22px 0;
+  position: relative;
+  z-index: 10;
 }
 
 .logo {
   display: inline-flex;
   align-items: center;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 1.8rem;
   text-transform: uppercase;
-  color: #d9d9d9;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.12);
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--text-1);
+  font-family: 'Arial Rounded MT Bold', 'Arial Rounded', Arial, sans-serif;
 }
 
 .nav-actions {
@@ -69,12 +77,14 @@ a {
 
 .nav-link {
   padding: 10px 14px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--bg-3);
   border-radius: 999px;
   transition: border-color 0.2s ease, color 0.2s ease;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 600;
+  color: var(--text-1);
+  background: rgba(182, 162, 142, 0.3);
 }
 
 
@@ -85,10 +95,11 @@ a {
 
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
-  align-items: flex-end;
-  padding: 60px 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -96,23 +107,35 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12, 8, 6, 0.45) 0%, rgba(12, 8, 6, 0.82) 100%),
-              url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80') center/cover;
-  filter: saturate(0.8);
+  background: url('https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=2000&q=80') center/cover;
+  filter: grayscale(0.4) contrast(1.2) brightness(0.85);
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(182, 162, 142, 0.2);
+  z-index: 1;
 }
 
 .hero-copy {
   position: relative;
-  max-width: 520px;
+  max-width: 600px;
   display: grid;
-  gap: 10px;
-  z-index: 1;
+  gap: 16px;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
 }
 
 .hero-copy h1 {
   margin: 4px 0 10px;
-  font-size: clamp(2.4rem, 4.5vw, 3.2rem);
-  line-height: 1.05;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--text-1);
+  font-weight: 400;
 }
 
 .hero-copy .lede {
@@ -174,11 +197,12 @@ a {
 }
 
 .card {
-  background: linear-gradient(160deg, var(--card), #0f0a08 70%);
-  border: 1px solid var(--line);
+  background: var(--bg-2);
+  border: 1px solid var(--bg-3);
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: var(--shadow);
+  color: var(--text-1);
 }
 
 .card.minimal {
@@ -207,18 +231,19 @@ a {
 .eyebrow {
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-3);
   font-size: 0.82rem;
   margin: 0;
 }
 
 .muted {
-  color: var(--muted);
+  color: var(--text-3);
   margin: 0;
 }
 
 .lede {
-  color: #e8dccf;
+  color: var(--text-1);
+  font-size: 1.1rem;
 }
 
 .button {
@@ -240,9 +265,9 @@ a {
 }
 
 .button.primary {
-  background: linear-gradient(135deg, #7d4f2f, #5a3722);
-  border-color: #a26f45;
-  color: #fffdf9;
+  background: var(--text-1);
+  border-color: var(--text-1);
+  color: var(--bg-2);
 }
 
 .button.ghost {
