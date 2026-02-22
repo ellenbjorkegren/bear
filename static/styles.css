@@ -9,6 +9,7 @@
   --text-4: #3d3d2e;
   --text-5: #4b5320;
   --bg: #b6a28e;
+  --bg-primary: #b6a28e;
   --text: #302621;
   --muted: #7a715c;
   --accent: #801818;
@@ -27,7 +28,7 @@
 
 body {
   margin: 0;
-  background: var(--bg-2);
+  background: #b6a28e;
   color: var(--text-1);
   min-height: 100vh;
 }
@@ -107,8 +108,8 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=2000&q=80') center/cover;
-  filter: grayscale(0.4) contrast(1.2) brightness(0.85);
+  background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80') center/cover;
+  filter: grayscale(0.2) contrast(1.1) brightness(0.9);
   z-index: 0;
 }
 
@@ -116,26 +117,27 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(182, 162, 142, 0.2);
+  background: rgba(182, 162, 142, 0.4);
   z-index: 1;
 }
 
 .hero-copy {
   position: relative;
-  max-width: 600px;
+  max-width: 500px;
   display: grid;
-  gap: 16px;
+  gap: 12px;
   z-index: 2;
   text-align: center;
-  padding: 40px;
+  padding: 20px;
 }
 
 .hero-copy h1 {
   margin: 4px 0 10px;
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  line-height: 1.1;
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  line-height: 1.15;
   color: var(--text-1);
   font-weight: 400;
+  font-family: 'Mukta Mahee', sans-serif;
 }
 
 .hero-copy .lede {
@@ -168,10 +170,11 @@ a {
 }
 
 .section {
-  padding: 18px 0;
+  padding: 40px 0;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 24px;
+  background: #b6a28e;
 }
 
 .section-head {
@@ -181,6 +184,9 @@ a {
 .section h2 {
   margin: 6px 0 12px;
   font-size: clamp(1.8rem, 3vw, 2.35rem);
+  font-family: 'Mukta Mahee', sans-serif;
+  font-weight: 400;
+  color: var(--text-1);
 }
 
 .grid {
@@ -197,11 +203,11 @@ a {
 }
 
 .card {
-  background: var(--bg-2);
+  background: #b6a28e;
   border: 1px solid var(--bg-3);
   border-radius: var(--radius);
   padding: 18px;
-  box-shadow: var(--shadow);
+  box-shadow: none;
   color: var(--text-1);
 }
 
@@ -243,7 +249,8 @@ a {
 
 .lede {
   color: var(--text-1);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-family: 'Mukta Mahee', sans-serif;
 }
 
 .button {
@@ -339,13 +346,14 @@ a {
 
 .footer {
   padding: 24px 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--bg-3);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   flex-wrap: wrap;
-  color: var(--muted);
+  color: var(--text-3);
+  background: #b6a28e;
 }
 
 .footer-links {
@@ -441,6 +449,9 @@ input[type="email"]:focus {
 
 .card h3 {
   margin: 6px 0 6px;
+  font-family: 'Mukta Mahee', sans-serif;
+  font-weight: 500;
+  color: var(--text-1);
 }
 
 .card p {
