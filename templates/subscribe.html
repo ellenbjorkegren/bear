@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body class="page">
+<body class="page page-alt">
   <header class="shell">
     <nav class="nav">
       <a class="logo" href="{{ url_for('home') }}">BEAR</a>
@@ -54,9 +54,9 @@
 
             <label class="label">
               Delivery interval
-              <div class="pill-row selectable" data-group="interval">
+              <div class="pill-row">
                 {% for interval in intervals %}
-                <button type="button" class="pill pill-select" data-value="{{ interval }}">{{ interval }}</button>
+                <button type="button" class="pill pill-select" data-group="interval" data-value="{{ interval }}">{{ interval }}</button>
                 {% endfor %}
               </div>
               <input type="hidden" name="interval" required>

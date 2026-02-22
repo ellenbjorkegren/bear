@@ -8,8 +8,8 @@
   --text-3: #7a715c;
   --text-4: #3d3d2e;
   --text-5: #4b5320;
-  --bg: #b6a28e;
-  --bg-primary: #b6a28e;
+  --bg: #EAE4D7;
+  --bg-primary: #EAE4D7;
   --text: #302621;
   --muted: #7a715c;
   --accent: #801818;
@@ -28,7 +28,7 @@
 
 body {
   margin: 0;
-  background: #b6a28e;
+  background: #EAE4D7;
   color: var(--text-1);
   min-height: 100vh;
 }
@@ -85,7 +85,7 @@ a {
   letter-spacing: 0.08em;
   font-weight: 600;
   color: var(--text-1);
-  background: rgba(182, 162, 142, 0.3);
+  background: rgba(234, 228, 215, 0.6);
 }
 
 
@@ -108,8 +108,8 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80') center/cover;
-  filter: grayscale(0.2) contrast(1.1) brightness(0.9);
+  background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2000&q=80') center/cover;
+  filter: grayscale(0.15) contrast(1.05) brightness(0.92);
   z-index: 0;
 }
 
@@ -117,7 +117,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(182, 162, 142, 0.4);
+  background: rgba(234, 228, 215, 0.35);
   z-index: 1;
 }
 
@@ -174,7 +174,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  background: #b6a28e;
+  background: #EAE4D7;
 }
 
 .section-head {
@@ -203,12 +203,42 @@ a {
 }
 
 .card {
-  background: #b6a28e;
+  background: #EAE4D7;
   border: 1px solid var(--bg-3);
   border-radius: var(--radius);
   padding: 18px;
   box-shadow: none;
   color: var(--text-1);
+}
+
+/* Second-page / alt section styling */
+.section-alt,
+.page-alt .section {
+  background: #CBA560;
+}
+
+.section-alt .section-head h2,
+.page-alt .section-head h1 {
+  color: #801818;
+}
+
+.section-muted,
+.section-alt .section-head p {
+  color: #735A4C;
+}
+
+.card-alt {
+  background: rgba(234, 228, 215, 0.7);
+  border-color: #735A4C;
+}
+
+.card-alt h3 {
+  color: #801818;
+}
+
+.card-muted,
+.card-alt p {
+  color: #302621;
 }
 
 .card.minimal {
@@ -274,7 +304,7 @@ a {
 .button.primary {
   background: var(--text-1);
   border-color: var(--text-1);
-  color: var(--bg-2);
+  color: #EAE4D7;
 }
 
 .button.ghost {
@@ -353,7 +383,77 @@ a {
   gap: 10px;
   flex-wrap: wrap;
   color: var(--text-3);
-  background: #b6a28e;
+  background: #EAE4D7;
+}
+
+.page-alt .footer {
+  background: #CBA560;
+  color: #735A4C;
+  border-top-color: #735A4C;
+}
+
+.page-alt .footer a {
+  color: #302621;
+}
+
+.page-alt .section-head .eyebrow {
+  color: #735A4C;
+}
+
+.page-alt .plan-card {
+  background: rgba(234, 228, 215, 0.85);
+  border-color: #735A4C;
+}
+
+.page-alt .plan-card .plan-title {
+  color: #801818;
+}
+
+.page-alt .plan-card .muted {
+  color: #302621;
+}
+
+.page-alt .form-card,
+.page-alt .summary-card {
+  background: rgba(234, 228, 215, 0.8);
+  border-color: #735A4C;
+}
+
+.page-alt .form-card .label,
+.page-alt .summary-card .card-label {
+  color: #302621;
+}
+
+.page-alt .form-card h3,
+.page-alt .summary-card h3,
+.page-alt .summary-card .metric {
+  color: #801818;
+}
+
+.page-alt .form-card .muted,
+.page-alt .summary-card .muted,
+.page-alt .form-note {
+  color: #735A4C;
+}
+
+.page-alt input,
+.page-alt select,
+.page-alt .fieldset {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: #735A4C;
+  color: #302621;
+}
+
+.page-alt .pill-select {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: #735A4C;
+  color: #302621;
+}
+
+.page-alt .pill-select.active {
+  border-color: #801818;
+  color: #801818;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .footer-links {
